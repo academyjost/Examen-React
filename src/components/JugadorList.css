@@ -1,7 +1,90 @@
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background-color: #ffffff;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 3rem 2.5rem;
+  background-color: var(--light-bg);
+  flex-grow: 1;
 }
+
+/* Contenedor genérico para estados de Carga, Error y Vacío */
+.status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+  min-height: 450px;
+  grid-column: 1 / -1; /* Ocupa todo el ancho en caso de estar dentro de grid */
+  background-color: var(--white);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-soft);
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 95%;
+  border: 1px solid var(--cream);
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Spinner animado para estado de Carga */
+.spinner {
+  width: 55px;
+  height: 55px;
+  border: 4px solid rgba(163, 177, 138, 0.25);
+  border-top: 4px solid var(--fern-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Estados de Error y Vacío */
+.status-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.status-title {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.status-message {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Responsivo para listado */
+@media (max-width: 768px) {
+  main {
+    padding: 2rem 1.25rem;
+    gap: 1.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  .status-container {
+    padding: 3rem 1.5rem;
+    min-height: 350px;
+  }
+}

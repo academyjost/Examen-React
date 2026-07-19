@@ -33,9 +33,32 @@ export const JugadorList = ({ actualizarTotal }) => {
     consultarAPI();
   }, [actualizarTotal]);
 
-  if (cargando) return <h2>Cargando directorio de jugadores...</h2>;
-  if (error) return <h2>Ocurrió un error: {error}</h2>;
-  if (jugadores.length === 0) return <h2>No hay jugadores disponibles.</h2>;
+  if (cargando) {
+    return (
+      <div className="status-container loading-container">
+        <div className="spinner"></div>
+        <p className="status-text">Cargando el directorio de jugadores...</p>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="status-container error-container">
+        <div className="status-icon error-icon">⚠️</div>
+        <h2 className="status-title">Ocurrió un error</h2>
+        <p className="status-message">{error}</p>
+      </div>
+    );
+  }
+  if (jugadores.length === 0) {
+    return (
+      <div className="status-container empty-container">
+        <div className="status-icon empty-icon">⚽</div>
+        <h2 className="status-title">No hay jugadores disponibles</h2>
+        <p className="status-message">Por favor, intenta recargar la página más tarde.</p>
+      </div>
+    );
+  }
 
   return (
     <main>

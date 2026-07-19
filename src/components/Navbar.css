@@ -1,9 +1,67 @@
-nav {
-  background-color: #00008b; 
-  color: #ffffff;
-  padding: 1rem 2rem;
+.navbar-container {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 1.25rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--secondary-dark);
 }
+
+.navbar-container h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-container h2::before {
+  content: '⚽';
+  font-size: 1.3rem;
+}
+
+.counter-box {
+  background-color: var(--fern-green);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(88, 129, 87, 0.25);
+  transition: var(--transition-smooth);
+}
+
+.counter-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(88, 129, 87, 0.35);
+  background-color: var(--secondary-dark);
+}
+
+.counter-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+  .navbar-container {
+    padding: 1rem 1.5rem;
+  }
+  
+  .navbar-container h2 {
+    font-size: 1.25rem;
+  }
+  
+  .counter-box {
+    padding: 0.4rem 1rem;
+  }
+}
