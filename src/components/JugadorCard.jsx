@@ -1,3 +1,4 @@
+import "./JugadorCard.css";
 export const JugadorCard = ({ jugador }) => {
   const { name, age, birthDate, currentClub, nationalTeam, position, number, photoUrl } = jugador;
   

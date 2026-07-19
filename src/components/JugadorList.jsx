@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { JugadorCard } from './JugadorCard';
+import "./JugadorList.css";
 
 export const JugadorList = ({ actualizarTotal }) => {
   // 1. Creamos los estados requeridos por la guía

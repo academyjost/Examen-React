@@ -1,3 +1,5 @@
+import "./Navbar.css"
+
 export const Navbar = ({ totalJugadores }) => {
   return (
     <nav className="navbar-container">
